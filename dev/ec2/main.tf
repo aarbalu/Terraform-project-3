@@ -32,7 +32,7 @@ resource "aws_security_group" "app_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-sg"
   })
 }
@@ -63,7 +63,7 @@ resource "aws_instance" "app_server" {
   }
  user_data = file("./userdata.sh")
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-server"
   })
 }
@@ -72,7 +72,7 @@ resource "aws_instance" "app_server" {
 # Elastic IP
 # -------------------
 resource "aws_eip" "app_eip" {
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-eip"
   })
 }

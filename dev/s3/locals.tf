@@ -1,8 +1,8 @@
 locals {
   common_tags = {
     Project     = "Enterprise"
-    Environment = "Development"
-    Owner       = "Manjunath"
+    Environment = "QA"
+    Owner       = "Balasubramani"
     Team        = "Cloud"
     ManagedBy   = "Terraform"
     Location    = "NA"

@@ -6,14 +6,14 @@ resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-vpc"
   })
 }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-igw"
   })
 }
@@ -26,7 +26,7 @@ resource "aws_subnet" "app_a" {
   cidr_block        = "10.0.1.0/24"
   availability_zone = "ap-south-1a"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-subnet-${local.az_map["ap-south-1a"]}-01"
   })
 }
@@ -36,7 +36,7 @@ resource "aws_subnet" "app_b" {
   cidr_block        = "10.0.2.0/24"
   availability_zone = "ap-south-1b"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-subnet-${local.az_map["ap-south-1b"]}-01"
   })
 }
@@ -46,7 +46,7 @@ resource "aws_subnet" "app_c" {
   cidr_block        = "10.0.3.0/24"
   availability_zone = "ap-south-1c"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-subnet-${local.az_map["ap-south-1c"]}-01"
   })
 }
@@ -60,7 +60,7 @@ resource "aws_subnet" "db_a" {
   cidr_block        = "10.0.11.0/24"
   availability_zone = "ap-south-1a"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-db-subnet-${local.az_map["ap-south-1a"]}-01"
   })
 }
@@ -70,7 +70,7 @@ resource "aws_subnet" "db_b" {
   cidr_block        = "10.0.12.0/24"
   availability_zone = "ap-south-1b"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-db-subnet-${local.az_map["ap-south-1b"]}-01"
   })
 }
@@ -80,7 +80,7 @@ resource "aws_subnet" "db_c" {
   cidr_block        = "10.0.13.0/24"
   availability_zone = "ap-south-1c"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-db-subnet-${local.az_map["ap-south-1c"]}-01"
   })
 }
@@ -94,7 +94,7 @@ resource "aws_subnet" "web_a" {
   cidr_block        = "10.0.21.0/24"
   availability_zone = "ap-south-1a"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-web-subnet-${local.az_map["ap-south-1a"]}-01"
   })
 }
@@ -104,7 +104,7 @@ resource "aws_subnet" "web_b" {
   cidr_block        = "10.0.22.0/24"
   availability_zone = "ap-south-1b"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-web-subnet-${local.az_map["ap-south-1b"]}-01"
   })
 }
@@ -114,7 +114,7 @@ resource "aws_subnet" "web_c" {
   cidr_block        = "10.0.23.0/24"
   availability_zone = "ap-south-1c"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-web-subnet-${local.az_map["ap-south-1c"]}-01"
   })
 }
@@ -128,7 +128,7 @@ resource "aws_subnet" "ecs_a" {
   cidr_block        = "10.0.31.0/24"
   availability_zone = "ap-south-1a"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-ecs-subnet-${local.az_map["ap-south-1a"]}-01"
   })
 }
@@ -138,7 +138,7 @@ resource "aws_subnet" "ecs_b" {
   cidr_block        = "10.0.32.0/24"
   availability_zone = "ap-south-1b"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-ecs-subnet-${local.az_map["ap-south-1b"]}-01"
   })
 }
@@ -148,7 +148,7 @@ resource "aws_subnet" "ecs_c" {
   cidr_block        = "10.0.33.0/24"
   availability_zone = "ap-south-1c"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-ecs-subnet-${local.az_map["ap-south-1c"]}-01"
   })
 }
@@ -162,7 +162,7 @@ resource "aws_subnet" "eks_a" {
   cidr_block        = "10.0.41.0/24"
   availability_zone = "ap-south-1a"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-eks-subnet-${local.az_map["ap-south-1a"]}-01"
   })
 }
@@ -172,7 +172,7 @@ resource "aws_subnet" "eks_b" {
   cidr_block        = "10.0.42.0/24"
   availability_zone = "ap-south-1b"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-eks-subnet-${local.az_map["ap-south-1b"]}-01"
   })
 }
@@ -182,7 +182,7 @@ resource "aws_subnet" "eks_c" {
   cidr_block        = "10.0.43.0/24"
   availability_zone = "ap-south-1c"
 
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-eks-subnet-${local.az_map["ap-south-1c"]}-01"
   })
 }
@@ -197,21 +197,21 @@ resource "aws_route_table" "app" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-app-route-table-common"
   })
 }
 
 resource "aws_route_table" "db" {
   vpc_id = aws_vpc.main.id
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-db-route-table-common"
   })
 }
 
 resource "aws_route_table" "web" {
   vpc_id = aws_vpc.main.id
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-web-route-table-common"
   })
 }
@@ -222,7 +222,7 @@ resource "aws_route_table" "ecs" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-ecs-route-table-common"
   })
 }
@@ -233,7 +233,7 @@ resource "aws_route_table" "eks" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
-  tags = merge(local.comman_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.prefix}-eks-route-table-common"
   })
 }
