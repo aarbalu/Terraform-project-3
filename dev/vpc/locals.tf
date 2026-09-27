@@ -1,7 +1,7 @@
 locals {
   prefix = "mumbai-vpc"
 
-  comman_tags = {
+  common_tags = {
     Project     = "Enterprise"
     Environment = "QA"
     Owner       = "Balasubramani"
